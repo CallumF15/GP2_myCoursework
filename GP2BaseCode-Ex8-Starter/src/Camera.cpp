@@ -20,7 +20,9 @@ Camera::Camera()
 {
 	m_Type = "Camera";
 
+
 	m_Rotation = vec3(0.0f, 0.0f, 0.0f);
+	m_position = vec3(0.0f, 0.0f, 0.0f);
 
 	m_LookAt = vec3(0.0f, 0.0f, 0.0f);
 	m_Up = vec3(0.0f, 1.0f, 0.0f);
@@ -48,7 +50,7 @@ void Camera::update()
 	//vec3 position = m_Parent->getTransform()->getPosition();
 	m_position = m_Parent->getTransform()->getPosition();
 	m_Projection = glm::perspective(m_FOV, m_AspectRatio, m_NearClip, m_FarClip);
-	m_View = glm::lookAt(m_position, lookvec, m_Up);
+	m_View = glm::lookAt(m_position, m_position, m_Up);
 
 }
 
@@ -67,14 +69,14 @@ void Camera::lockCamera()
 void Camera::moveCamera(float distance, float direction){
 
 	float radian = (camYaw + direction)* M_PI / 180.0;
-	camX -= glm::sin(radian)*distance;
-	camZ -= glm::cos(radian)*distance;
+	m_position.x -= glm::sin(radian)*distance;
+	m_position.z -= glm::cos(radian)*distance;
 }
 
 void Camera::moveCameraUp(float distance, float direction){
 
 	float radian = (camPitch + direction)* M_PI / 180.0;
-	camY += glm::sin(radian)*distance;
+	m_position.y += glm::sin(radian)*distance;
 }
 
 void Camera::control(SDL_Window* window, float moveVelocity, float mouseVelocity, bool mi){
@@ -82,9 +84,11 @@ void Camera::control(SDL_Window* window, float moveVelocity, float mouseVelocity
 		int midX = 320;
 		int midY = 240;
 
+
 		int tmpx, tmpy;
 		tmpx = m_MouseX;
 		tmpy = m_MouseY;
+
 		camYaw += mouseVelocity * (midX - tmpx);
 		camPitch += mouseVelocity * (midY - tmpy);
 		lockCamera();
@@ -119,22 +123,34 @@ void Camera::movement(MovementType movementType, float mouseVelocity, float move
 		break;
 	}
 
-	int lookz = m_position.x + (int)(30 * glm::cos(camYaw));
-	int lookx = m_position.x + (int)(30 * glm::sin(camYaw));
-	int looky = m_position.y + (int)(30 * glm::tan(camPitch));
-	lookvec = vec3(lookx, looky, lookz);
+	//int lookz = m_position.x + (int)(30 * glm::cos(camYaw));
+	//int lookx = m_position.x + (int)(30 * glm::sin(camYaw));
+	//int looky = m_position.y + (int)(30 * glm::tan(camPitch));
+	//lookvec = vec3(lookx, looky, lookz);
+
+	//direction.x = -sin(m_Rotation.y);
+	//direction.y = sin(m_Rotation.x);
+	//direction.z = cos(m_Rotation.y);
+
+
+	//glm::normalize(direction);
+
+	//m_position.y += sin(m_Rotation.x) ;
+	//m_position += direction;
+	
 
 
 	//m_Rotation.x = (-camPitch, 1.0, 0.0, 0.0);
 	//m_Rotation.y = (-camYaw, 0.0, 1.0, 0.0);
 
-	//glRotatef(-camPitch, 1.0, 0.0, 0.0);
-	//glRotatef(-camYaw, 0.0, 1.0, 0.0);
+	glLoadIdentity();
+	glRotatef(-camPitch, 1.0, 0.0, 0.0);
+	glRotatef(-camYaw, 0.0, 1.0, 0.0);
 }
 
 void Camera::updateCamera(){
-	//glTranslatef(-camX, -camY, -camZ);
-	m_Parent->getTransform()->setRotation(-camX, -camY, -camZ);
+	glTranslatef(-m_position.x, -m_position.y, -m_position.z);
+	//m_Parent->getTransform()->setPosition(-camX, -camY, -camZ);
 	//camPos = vec3(-camX, -camY, -camZ);
 }
 
@@ -158,6 +174,7 @@ void Camera::setMousePosition(int mouseX, int mouseY)
 	m_MouseX = mouseX;
 	m_MouseY = mouseY;
 }
+
 
 
 //End Methods

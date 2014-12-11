@@ -37,6 +37,7 @@
     <ClInclude Include="..\headers\Texture.h" />
     <ClInclude Include="..\headers\Transform.h" />
     <ClInclude Include="..\headers\Vertex.h" />
+    <ClInclude Include="SkyboxMaterial.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\shaders\ambientFS.glsl" />
@@ -98,11 +99,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-<<<<<<< HEAD
-      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Specialised Applications\SDL2_ttf-2.0.12\include;C:\Specialised Applications\SDL2_image-2.0.0\include;C:\Users\cflann200\Desktop\GP2_E-MC-Coursework\GP2BaseCode-Ex8-Starter\headers;Z:\GitHub\GP2BaseCode\headers;C:\Specialised Applications\glm;C:\Specialised Applications\glew-1.11.0\include;C:\Specialised Applications\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-=======
-      <AdditionalIncludeDirectories>C:\Specialised Applications\glfw\glfw-3.0.4\include;C:\Specialised Applications\FBX SDK\2015.1\include;C:\Specialised Applications\SDL2_ttf-2.0.12\include;C:\Specialised Applications\SDL2_image-2.0.0\include;C:\Users\Mathew\Desktop\GP2_E-MC-Coursework\GP2BaseCode-Ex8-Starter\headers;Z:\GitHub\GP2BaseCode\headers;C:\Specialised Applications\glm;C:\Specialised Applications\glew-1.11.0\include;C:\Specialised Applications\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
->>>>>>> origin/master
+      <AdditionalIncludeDirectories>C:\Specialised Applications\glfw\glfw-3.0.4\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Specialised Applications\SDL2_ttf-2.0.12\include;C:\Specialised Applications\SDL2_image-2.0.0\include;C:\Users\cflann200\Documents\GitHub\GP2_E-MC-Coursework\GP2BaseCode-Ex8-Starter\headers;C:\Specialised Applications\glm;C:\Specialised Applications\glew-1.11.0\include;C:\Specialised Applications\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>

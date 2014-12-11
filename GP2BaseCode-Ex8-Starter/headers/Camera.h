@@ -10,13 +10,10 @@
 #define Camera_h
 
 #include <SDL.h>
-<<<<<<< HEAD
 #include <gl\glew.h>
 
-=======
-//#include <GLFW\glfw3.h>
 #include <gl\glew.h>
->>>>>>> origin/master
+#include <glm\gtc\quaternion.hpp>
 #include <glm/glm.hpp>
 using glm::mat4;
 using glm::vec3;
@@ -65,10 +62,16 @@ public:
 
 	MovementType setMovementType(MovementType type);
 
-
-
 protected:
 private:
+	// Creates an identity quaternion (no rotation)
+	glm::quat MyQuaternion;
+
+	// Conversion from Euler angles (in radians) to Quaternion
+	vec3 EulerAngles;
+
+
+
 	//my variables
 	MovementType  m_movementType;
 	int m_MouseX, m_MouseY;
@@ -79,8 +82,10 @@ private:
 
 	vec3 direction;
 	vec3 right;
+
 	// position
-	vec3 position = vec3(0, 0, 5);
+	//vec3 position = vec3(0, 0, 5);
+
 	// horizontal angle : toward -Z
 	float horizontalAngle = 3.14f;
 	// vertical angle : 0, look at the horizon
