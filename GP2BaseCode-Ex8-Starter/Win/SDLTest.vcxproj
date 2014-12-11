@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Camera.cpp" />
+    <ClCompile Include="..\src\Component.cpp" />
+    <ClCompile Include="..\src\FBXLoader.cpp" />
+    <ClCompile Include="..\src\GameObject.cpp" />
+    <ClCompile Include="..\src\Light.cpp" />
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Material.cpp" />
+    <ClCompile Include="..\src\Mesh.cpp" />
+    <ClCompile Include="..\src\primitiveType.cpp" />
+    <ClCompile Include="..\src\Shader.cpp" />
+    <ClCompile Include="..\src\Texture.cpp" />
+    <ClCompile Include="..\src\Transform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\headers\Camera.h" />
+    <ClInclude Include="..\headers\Component.h" />
+    <ClInclude Include="..\headers\FBXLoader.h" />
+    <ClInclude Include="..\headers\GameObject.h" />
+    <ClInclude Include="..\headers\Light.h" />
+    <ClInclude Include="..\headers\Material.h" />
+    <ClInclude Include="..\headers\Mesh.h" />
+    <ClInclude Include="..\headers\primitiveType.h" />
+    <ClInclude Include="..\headers\Shader.h" />
+    <ClInclude Include="..\headers\Texture.h" />
+    <ClInclude Include="..\headers\Transform.h" />
+    <ClInclude Include="..\headers\Vertex.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\shaders\ambientFS.glsl" />
+    <None Include="..\assets\shaders\ambientVS.glsl" />
+    <None Include="..\assets\shaders\diffuseFS.glsl" />
+    <None Include="..\assets\shaders\diffuseVS.glsl" />
+    <None Include="..\assets\shaders\directionalLightTextureFS.glsl" />
+    <None Include="..\assets\shaders\directionalLightTextureVS.glsl" />
+    <None Include="..\assets\shaders\simpleFS.glsl" />
+    <None Include="..\assets\shaders\simpleVS.glsl" />
+    <None Include="..\assets\shaders\specularFS.glsl" />
+    <None Include="..\assets\shaders\specularVS.glsl" />
+    <None Include="..\assets\shaders\textureFS.glsl" />
+    <None Include="..\assets\shaders\textureVS.glsl" />
+    <None Include="..\assets\shaders\vertexColourFS.glsl" />
+    <None Include="..\assets\shaders\vertexColourTextureFS.glsl" />
+    <None Include="..\assets\shaders\vertexColourTextureVS.glsl" />
+    <None Include="..\assets\shaders\vertexColourVS.glsl" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{68F0627D-C58E-4BAD-B10A-401ECB51D69F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>SDLTest</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+<<<<<<< HEAD
+      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Specialised Applications\SDL2_ttf-2.0.12\include;C:\Specialised Applications\SDL2_image-2.0.0\include;C:\Users\cflann200\Desktop\GP2_E-MC-Coursework\GP2BaseCode-Ex8-Starter\headers;Z:\GitHub\GP2BaseCode\headers;C:\Specialised Applications\glm;C:\Specialised Applications\glew-1.11.0\include;C:\Specialised Applications\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+=======
+      <AdditionalIncludeDirectories>C:\Specialised Applications\glfw\glfw-3.0.4\include;C:\Specialised Applications\FBX SDK\2015.1\include;C:\Specialised Applications\SDL2_ttf-2.0.12\include;C:\Specialised Applications\SDL2_image-2.0.0\include;C:\Users\Mathew\Desktop\GP2_E-MC-Coursework\GP2BaseCode-Ex8-Starter\headers;Z:\GitHub\GP2BaseCode\headers;C:\Specialised Applications\glm;C:\Specialised Applications\glew-1.11.0\include;C:\Specialised Applications\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+>>>>>>> origin/master
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x86\debug;C:\Specialised Applications\SDL2_ttf-2.0.12\lib\x86;C:\Specialised Applications\SDL2_image-2.0.0\lib\x86;C:\Specialised Applications\SDL2\lib\x86;C:\Specialised Applications\glew-1.11.0\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libfbxsdk.lib;SDL2_ttf.lib;SDL2_image.lib;sdl2.lib;sdl2main.lib;glew32.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
