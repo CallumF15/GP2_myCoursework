@@ -145,5 +145,11 @@
     <None Include="..\assets\shaders\directionalLightTextureVS.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\assets\shaders\BumpmappingFS.glsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\assets\shaders\BumpmappingVS.glsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

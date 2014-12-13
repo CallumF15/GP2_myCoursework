@@ -54,11 +54,19 @@ public:
 	void loadDiffuseMap(const std::string& filename);
 	GLuint getDiffuseMap();
 
+	void loadSpecularMap(const std::string& filename);
+	GLuint getSpecularMap();
+
+	void loadBumpMap(const std::string& filename);
+	GLuint getBumpMap();
+
 
 protected:
 private:
     GLuint m_ShaderProgram;
 	GLuint m_DiffuseMap;
+	GLuint m_SpecularMap;
+	GLuint m_BumpMap;
 	vec4 m_AmbientColour;
 	vec4 m_DiffuseColour;
 	vec4 m_SpecularColour;

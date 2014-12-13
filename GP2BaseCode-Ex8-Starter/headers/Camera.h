@@ -27,7 +27,7 @@ enum MovementType { FORWARD, BACKWARD, STRAFE_LEFT, STRAFE_RIGHT, RESET, UP, DOW
 
 class Camera:public Component
 {
-	const float movementSpeed = 0.1f;
+	const float movementSpeed = 0.5f;
 
 public:
 	Camera();
