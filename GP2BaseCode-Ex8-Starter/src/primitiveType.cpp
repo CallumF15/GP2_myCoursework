@@ -102,11 +102,6 @@ void primitiveType::CheckShape(primitiveShape shape)
 	 y = pos.y;
 	 z = pos.z;
 
-	// objectShape = new GameObject();
-	// transform = new Transform();
-	// material = new Material();
-	// mesh = new Mesh();
-
 	 objectShape->setName(name);
 	 transform->setPosition(x, y, z);
 	 objectShape->setTransform(transform);
@@ -114,6 +109,7 @@ void primitiveType::CheckShape(primitiveShape shape)
 	 std::string vsPath = ASSET_PATH + SHADER_PATH + "/specularVS.glsl";
 	 std::string fsPath = ASSET_PATH + SHADER_PATH + "/specularFS.glsl";
 	 material->loadShader(vsPath, fsPath);
+
 	 objectShape->setMesh(mesh);
 	 objectShape->setMaterial(material);
 	 displayList.push_back(objectShape);

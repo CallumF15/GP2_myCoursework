@@ -81,6 +81,7 @@ vec4 ambientLightColour = vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
 std::vector<GameObject*> displayList;
 GameObject * mainCamera;
+GameObject * secondCamera;
 GameObject * mainLight;
 
 primitiveType* type;
@@ -249,10 +250,16 @@ void Initialise()
 
 	mainCamera = new GameObject();
 	mainCamera->setName("MainCamera");
+	secondCamera = new GameObject();
+	secondCamera->setName("secondCamera");
 
 	Transform *t = new Transform();
 	t->setPosition(0.0f, 0.0f, 10.0f);
 	mainCamera->setTransform(t);
+
+	Transform *t2 = new Transform();
+	t->setPosition(0.0f, 0.0f, 10.0f);
+	secondCamera->setTransform(t2);
 
 	//Camera * c=new Camera();
 	c->setAspectRatio((float)(WINDOW_WIDTH / WINDOW_HEIGHT));
@@ -274,24 +281,39 @@ void Initialise()
 	mainLight->setLight(light);
 	type->displayList.push_back(mainLight);
 
-	//type->displayList.push_back(mainLight);
-	//type->setUpPrimitive("cube", vec3(0.0f, 0.0f, -10.0f), cubeObject, q, material, mesh);
+	type->setUpPrimitive("cube", vec3(0.0f, 0.0f, -10.0f), cubeObject, q, material, mesh);
 
 	/*Below is FBX model code (change at somepoint);*/
-	std::string modelPath = ASSET_PATH + MODEL_PATH + "armoredrecon.fbx";
-	GameObject * go = loadFBXFromFile(modelPath);
-	for (int i = 0; i < go->getChildCount(); i++)
-	{
-		Material * material = new Material();
-		material->init();
-		std::string vsPath = ASSET_PATH + SHADER_PATH + "/specularVS.glsl";
-		std::string fsPath = ASSET_PATH + SHADER_PATH + "/specularFS.glsl";
-		material->loadShader(vsPath, fsPath);
+	vec3 rotation[] = { vec3(-90, 0, 0), vec3(0, 0, 0) };
+	vec3 scaling[] = { vec3(0.01, 0.01, 0.01), vec3(1,1,1) };
+	vec3 modelPositions[] = { vec3(-1, 0, -10), vec3(-5, 0, -10) };
+	std::string modelFilenames[] = { "armorstand.fbx", "armoredrecon.fbx" };
 
-		go->getChild(i)->setMaterial(material);
+
+
+	GameObject * go;
+	//std::string modelPath = ASSET_PATH + MODEL_PATH + "armoredrecon.fbx";
+	for (int i = 0; i < 2; i++){
+
+		std::string modelPath = ASSET_PATH + MODEL_PATH + modelFilenames[i];
+		go = loadFBXFromFile(modelPath);
+
+		for (int i = 0; i < go->getChildCount(); i++)
+		{
+			Material * material = new Material();
+			material->init();
+			std::string vsPath = ASSET_PATH + SHADER_PATH + "/specularVS.glsl";
+			std::string fsPath = ASSET_PATH + SHADER_PATH + "/specularFS.glsl";
+			material->loadShader(vsPath, fsPath);
+
+			go->getChild(i)->setMaterial(material);
+		}
+		go->getTransform()->setRotation(rotation[i].x, rotation[i].y, rotation[i].z);
+		go->getTransform()->setScale(scaling[i].x, scaling[i].y, scaling[i].z);
+		go->getTransform()->setPosition(modelPositions[i].x, modelPositions[i].y, modelPositions[i].z);
+		type->displayList.push_back(go);
 	}
-	go->getTransform()->setPosition(0.0f, 0.0f, -10.0f);
-	type->displayList.push_back(go);
+	
 }
 
 
@@ -473,6 +495,7 @@ int main(int argc, char * arg[])
 					c->movement(UP);
 					break;
 				case SDLK_l:
+					c->movement(RESET);
 					break;
 				}
 			case SDL_MOUSEMOTION:
