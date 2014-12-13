@@ -61,9 +61,8 @@ private:
 	glm::vec2 oldMousePos;
 	MovementType m_movementType;
 
-	vec3 m_forward;
-	glm::vec3 m_position;
-	glm::vec3 m_direction;
+	vec3 m_position;
+	vec3 m_direction;
 
 	vec3 m_LookAt;
 	vec3 m_Up;

@@ -19,6 +19,7 @@
 
 Camera::Camera()
 {
+	m_position = vec3(0, 0, 10);
 	m_Type = "Camera";
 
 	m_direction = vec3(0.0, 0.0, -1.0f);
@@ -41,9 +42,10 @@ Camera::~Camera()
 
 void Camera::update()
 {
-	m_position = m_Parent->getTransform()->getPosition();
+	//m_position = m_Parent->getTransform()->getPosition();
 	m_Projection = glm::perspective(m_FOV, m_AspectRatio, m_NearClip, m_FarClip);
 	m_View = glm::lookAt(m_position, m_position + m_direction, m_Up);
+
 }
 
 void Camera::mouseUpdate(const glm::vec2& newMousePos)
@@ -65,9 +67,6 @@ void Camera::mouseUpdate(const glm::vec2& newMousePos)
 
 	oldMousePos = newMousePos; 
 }
-
-
-
 
 void Camera::movement(MovementType movementType)
 {
